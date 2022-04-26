@@ -16,8 +16,8 @@
 #   Haga clic en el botón install situado en la parte inferior izquierda
 #-----------------------------------------------------------------------------------------
 
-
 from os import sep
+from tkinter import NO
 import pandas as pd
 import JMPEstadisticas as jmp
 import numpy as np
@@ -25,37 +25,12 @@ import numpy as np
 #--- CREACION DE UN DATAFRAME ----
 def conseguirnotas():
     notas = pd.read_csv("data.csv", encoding = "UTF8", sep = ",")
-    sem1, sem2, sem3, sem4, sem5 = [], [], [], [], []
-    for valor in notas["1st"]:
-        if valor == :
-            valor = 0
-            sem1.append(valor)
-        else:
-            sem1.append(valor)
-    for valor in notas["2nd"]:
-        if valor == :
-            valor = 0
-            sem2.append(valor)
-        else:
-            sem2.append(valor)
-    for valor in notas["3rd"]:
-        if valor == :
-            valor = 0
-            sem3.append(valor)
-        else:
-            sem3.append(valor)
-    for valor in notas["4th"]:
-        if valor == :
-            valor = 0
-            sem4.append(valor)
-        else:
-            sem4.append(valor)
-    for valor in notas["5th"]:
-        if valor == :
-            valor = 0
-            sem5.append(valor)
-        else:
-            sem5.append(valor)
+    notas = notas.dropna(subset=["1st"])
+    notas = notas.dropna(subset=["2nd"])
+    notas = notas.dropna(subset=["3rd"])
+    notas = notas.dropna(subset=["4th"])
+    notas = notas.dropna(subset=["5th"])
+    sem1, sem2, sem3, sem4, sem5 = list(notas["1st"]), list(notas["2nd"]), list(notas["3rd"]), list(notas["4th"]), list(notas["5th"])
     return sem1, sem2, sem3, sem4, sem5
 
 notas1, notas2, notas3, notas4, notas5 = conseguirnotas()
