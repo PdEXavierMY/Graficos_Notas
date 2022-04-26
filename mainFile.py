@@ -19,6 +19,7 @@
 import pandas as pd
 import JMPEstadisticas as jmp
 import numpy as np
+from introducir import solicitar_introducir_numero_extremo
 
 #--- CREACION DE UN DATAFRAME ----
 def conseguirnotas():
@@ -36,9 +37,18 @@ observaciones1, observaciones2, observaciones3, observaciones4, observaciones5 =
 #observaciones = pd.DataFrame({'NOTAS':np.array([3,19,10,15,14,12,9,8,11,12,11,12,13,11,14,16])})
 
 #--- ANALISIS DE UNA CARACTERISTICA ---
-stats1, stats2, stats3, stats4, stats5 = jmp.JMPEstadisticas(observaciones1['NOTAS']), jmp.JMPEstadisticas(observaciones2['NOTAS']), jmp.JMPEstadisticas(observaciones3['NOTAS']), jmp.JMPEstadisticas(observaciones4['NOTAS']), jmp.JMPEstadisticas(observaciones5['NOTAS'])
-stats1.analisisCaracteristica()
-stats2.analisisCaracteristica()
-stats3.analisisCaracteristica()
-stats4.analisisCaracteristica()
-stats5.analisisCaracteristica()
+if __name__ == "__main__":
+    eleccion = solicitar_introducir_numero_extremo("Elige de que semetre quieres la estadística(1-5), o si la quieres de una media de cada semestre(6)", 1, 6)
+    stats1, stats2, stats3, stats4, stats5 = jmp.JMPEstadisticas(observaciones1['NOTAS']), jmp.JMPEstadisticas(observaciones2['NOTAS']), jmp.JMPEstadisticas(observaciones3['NOTAS']), jmp.JMPEstadisticas(observaciones4['NOTAS']), jmp.JMPEstadisticas(observaciones5['NOTAS'])
+    if eleccion == 1:
+        stats1.analisisCaracteristica()
+    elif eleccion == 2:
+        stats2.analisisCaracteristica()
+    elif eleccion == 5:
+        stats3.analisisCaracteristica()
+    elif eleccion == 4:
+        stats4.analisisCaracteristica()
+    elif eleccion == 5:
+        stats5.analisisCaracteristica()
+    elif eleccion == 6:
+        exit()
