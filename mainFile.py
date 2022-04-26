@@ -33,13 +33,22 @@ def conseguirnotas():
     return sem1, sem2, sem3, sem4, sem5
 
 notas1, notas2, notas3, notas4, notas5 = conseguirnotas()
-observaciones1, observaciones2, observaciones3, observaciones4, observaciones5 = pd.DataFrame({'NOTAS':np.array(notas1)}), pd.DataFrame({'NOTAS':np.array(notas2)}), pd.DataFrame({'NOTAS':np.array(notas3)}), pd.DataFrame({'NOTAS':np.array(notas4)}), pd.DataFrame({'NOTAS':np.array(notas5)})
+def notasfinales(s1, s2, s3, s4, s5):
+    notasmedia = []
+    for i in range(len(s1)-1):
+        total = float(s1[i])+float(s2[i])+float(s3[i])+float(s4[i])+float(s5[i])
+        total = round(total, 2)
+        media = total/5
+        notasmedia.append(media)
+    return notasmedia
+medias = notasfinales(notas1, notas2, notas3, notas4, notas5)
+observaciones1, observaciones2, observaciones3, observaciones4, observaciones5, observacionestotales = pd.DataFrame({'NOTAS':np.array(notas1)}), pd.DataFrame({'NOTAS':np.array(notas2)}), pd.DataFrame({'NOTAS':np.array(notas3)}), pd.DataFrame({'NOTAS':np.array(notas4)}), pd.DataFrame({'NOTAS':np.array(notas5)}), pd.DataFrame({'NOTAS':np.array(medias)})
 #observaciones = pd.DataFrame({'NOTAS':np.array([3,19,10,15,14,12,9,8,11,12,11,12,13,11,14,16])})
 
 #--- ANALISIS DE UNA CARACTERISTICA ---
 if __name__ == "__main__":
     eleccion = solicitar_introducir_numero_extremo("Elige de que semetre quieres la estadística(1-5), o si la quieres de una media de cada semestre(6)", 1, 6)
-    stats1, stats2, stats3, stats4, stats5 = jmp.JMPEstadisticas(observaciones1['NOTAS']), jmp.JMPEstadisticas(observaciones2['NOTAS']), jmp.JMPEstadisticas(observaciones3['NOTAS']), jmp.JMPEstadisticas(observaciones4['NOTAS']), jmp.JMPEstadisticas(observaciones5['NOTAS'])
+    stats1, stats2, stats3, stats4, stats5, statsfinales = jmp.JMPEstadisticas(observaciones1['NOTAS']), jmp.JMPEstadisticas(observaciones2['NOTAS']), jmp.JMPEstadisticas(observaciones3['NOTAS']), jmp.JMPEstadisticas(observaciones4['NOTAS']), jmp.JMPEstadisticas(observaciones5['NOTAS']), jmp.JMPEstadisticas(observacionestotales['NOTAS'])
     if eleccion == 1:
         stats1.analisisCaracteristica()
     elif eleccion == 2:
@@ -51,4 +60,4 @@ if __name__ == "__main__":
     elif eleccion == 5:
         stats5.analisisCaracteristica()
     elif eleccion == 6:
-        exit()
+        statsfinales.analisisCaracteristica()
