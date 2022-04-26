@@ -26,18 +26,36 @@ import numpy as np
 def conseguirnotas():
     notas = pd.read_csv("data.csv", encoding = "UTF8", sep = ",")
     sem1, sem2, sem3, sem4, sem5 = [], [], [], [], []
-    for linea in notas:
-        if linea[0] == "":
-            linea[0] = 0
-        if linea[1] == "":
-            linea[1] = 0
-        if linea[2] == "":
-            linea[2] = 0
-        if linea[3] == "":
-            linea[3] = 0
-        if linea[4] == "":
-            linea[4] = 0
-        sem1.append(linea[0]), sem2.append(linea[1]), sem3.append(linea[2]), sem4.append(linea[3]), sem5.append(linea[4])
+    for valor in notas["1st"]:
+        if valor == "":
+            valor = 0
+            sem1.append(valor)
+        else:
+            sem1.append(valor)
+    for valor in notas["2nd"]:
+        if valor == "":
+            valor = 0
+            sem2.append(valor)
+        else:
+            sem1.append(valor)
+    for valor in notas["3rd"]:
+        if valor == "":
+            valor = 0
+            sem3.append(valor)
+        else:
+            sem1.append(valor)
+    for valor in notas["4th"]:
+        if valor == "":
+            valor = 0
+            sem4.append(valor)
+        else:
+            sem1.append(valor)
+    for valor in notas["5th"]:
+        if valor == "":
+            valor = 0
+            sem5.append(valor)
+        else:
+            sem1.append(valor)
     return sem1, sem2, sem3, sem4, sem5
 
 notas1, notas2, notas3, notas4, notas5 = conseguirnotas()
@@ -47,7 +65,7 @@ observaciones1, observaciones2, observaciones3, observaciones4, observaciones5 =
 #--- ANALISIS DE UNA CARACTERISTICA ---
 stats1, stats2, stats3, stats4, stats5 = jmp.JMPEstadisticas(observaciones1['NOTAS']), jmp.JMPEstadisticas(observaciones2['NOTAS']), jmp.JMPEstadisticas(observaciones3['NOTAS']), jmp.JMPEstadisticas(observaciones4['NOTAS']), jmp.JMPEstadisticas(observaciones5['NOTAS'])
 stats1.analisisCaracteristica()
-stats2.analisisCaracteristica()
-stats3.analisisCaracteristica()
-stats4.analisisCaracteristica()
-stats5.analisisCaracteristica()
+#stats2.analisisCaracteristica()
+#stats3.analisisCaracteristica()
+#stats4.analisisCaracteristica()
+#stats5.analisisCaracteristica()
