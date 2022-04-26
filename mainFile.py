@@ -16,8 +16,6 @@
 #   Haga clic en el botón install situado en la parte inferior izquierda
 #-----------------------------------------------------------------------------------------
 
-from os import sep
-from tkinter import NO
 import pandas as pd
 import JMPEstadisticas as jmp
 import numpy as np
@@ -34,14 +32,13 @@ def conseguirnotas():
     return sem1, sem2, sem3, sem4, sem5
 
 notas1, notas2, notas3, notas4, notas5 = conseguirnotas()
-print(notas1)
 observaciones1, observaciones2, observaciones3, observaciones4, observaciones5 = pd.DataFrame({'NOTAS':np.array(notas1)}), pd.DataFrame({'NOTAS':np.array(notas2)}), pd.DataFrame({'NOTAS':np.array(notas3)}), pd.DataFrame({'NOTAS':np.array(notas4)}), pd.DataFrame({'NOTAS':np.array(notas5)})
 #observaciones = pd.DataFrame({'NOTAS':np.array([3,19,10,15,14,12,9,8,11,12,11,12,13,11,14,16])})
 
 #--- ANALISIS DE UNA CARACTERISTICA ---
 stats1, stats2, stats3, stats4, stats5 = jmp.JMPEstadisticas(observaciones1['NOTAS']), jmp.JMPEstadisticas(observaciones2['NOTAS']), jmp.JMPEstadisticas(observaciones3['NOTAS']), jmp.JMPEstadisticas(observaciones4['NOTAS']), jmp.JMPEstadisticas(observaciones5['NOTAS'])
 stats1.analisisCaracteristica()
-#stats2.analisisCaracteristica()
-#stats3.analisisCaracteristica()
-#stats4.analisisCaracteristica()
-#stats5.analisisCaracteristica()
+stats2.analisisCaracteristica()
+stats3.analisisCaracteristica()
+stats4.analisisCaracteristica()
+stats5.analisisCaracteristica()

@@ -87,8 +87,8 @@ class JMPEstadisticas:
 
     def calculoDelosCuartiles(self,mediana,rangoMediana):
         n = self.caracteristica.count()
-        sort_caracteristica = self.caracteristica.sort_values()
-        sort_caracteristica = sort_caracteristica.reset_index(drop=True)
+        caracteristica = self.caracteristica.sort_values()
+        caracteristica = caracteristica.reset_index(drop=True)
         q1 = 0
         q2 = mediana
         q3 = 0
@@ -96,21 +96,21 @@ class JMPEstadisticas:
         #Cálculo Q1
         restoDivision = rangoMediana%2
         if (restoDivision != 0):
-            q1 = sort_caracteristica[((rangoMediana/2)+1)-1]
+            q1 = caracteristica[((rangoMediana+1)/2)-1]
         else:
-            valorMin = sort_caracteristica[((rangoMediana/2)-1)]
-            valorMax = sort_caracteristica[(rangoMediana/2)]
+            valorMin = caracteristica[((rangoMediana/2)-1)]
+            valorMax = caracteristica[(rangoMediana/2)]
             q1 = (valorMin + ((valorMax - valorMin) / 2) + valorMax) / 2
 
         # Cálculo Q3
-        nbdatos = len(sort_caracteristica)+1
+        nbdatos = len(caracteristica)+1
         nbDatosDesdeMediana = nbdatos - rangoMediana
         restoDivision = nbDatosDesdeMediana % 2
         if (restoDivision != 0):
-            q3 = sort_caracteristica[(rangoMediana+ceil(nbDatosDesdeMediana/2))-1]
+            q3 = caracteristica[(rangoMediana+ceil(nbDatosDesdeMediana/2))-1]
         else:
-            valorMinQ3 = sort_caracteristica[(rangoMediana+(nbDatosDesdeMediana/2))-1]
-            valorMaxQ3 = sort_caracteristica[(rangoMediana+(nbDatosDesdeMediana/2))]
+            valorMinQ3 = caracteristica[(rangoMediana+(nbDatosDesdeMediana/2))-1]
+            valorMaxQ3 = caracteristica[(rangoMediana+(nbDatosDesdeMediana/2))]
             q3 = (valorMin + ((valorMax - valorMin) / 2) + valorMax) / 2
 
 
