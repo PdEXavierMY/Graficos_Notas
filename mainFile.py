@@ -27,31 +27,31 @@ def conseguirnotas():
     notas = pd.read_csv("data.csv", encoding = "UTF8", sep = ",")
     sem1, sem2, sem3, sem4, sem5 = [], [], [], [], []
     for valor in notas["1st"]:
-        if valor.isnull() == True:
+        if valor == :
             valor = 0
             sem1.append(valor)
         else:
             sem1.append(valor)
     for valor in notas["2nd"]:
-        if valor.isnull() == True:
+        if valor == :
             valor = 0
             sem2.append(valor)
         else:
             sem2.append(valor)
     for valor in notas["3rd"]:
-        if valor.isnull() == True:
+        if valor == :
             valor = 0
             sem3.append(valor)
         else:
             sem3.append(valor)
     for valor in notas["4th"]:
-        if valor.isnull() == True:
+        if valor == :
             valor = 0
             sem4.append(valor)
         else:
             sem4.append(valor)
     for valor in notas["5th"]:
-        if valor.isnull() == True:
+        if valor == :
             valor = 0
             sem5.append(valor)
         else:
