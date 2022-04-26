@@ -17,7 +17,6 @@
 #-----------------------------------------------------------------------------------------
 
 
-from cmath import nan
 from os import sep
 import pandas as pd
 import JMPEstadisticas as jmp
@@ -28,31 +27,31 @@ def conseguirnotas():
     notas = pd.read_csv("data.csv", encoding = "UTF8", sep = ",")
     sem1, sem2, sem3, sem4, sem5 = [], [], [], [], []
     for valor in notas["1st"]:
-        if valor == nan:
+        if valor.isnull() == True:
             valor = 0
             sem1.append(valor)
         else:
             sem1.append(valor)
     for valor in notas["2nd"]:
-        if valor == nan:
+        if valor.isnull() == True:
             valor = 0
             sem2.append(valor)
         else:
             sem2.append(valor)
     for valor in notas["3rd"]:
-        if valor == nan:
+        if valor.isnull() == True:
             valor = 0
             sem3.append(valor)
         else:
             sem3.append(valor)
     for valor in notas["4th"]:
-        if valor == nan:
+        if valor.isnull() == True:
             valor = 0
             sem4.append(valor)
         else:
             sem4.append(valor)
     for valor in notas["5th"]:
-        if valor == nan:
+        if valor.isnull() == True:
             valor = 0
             sem5.append(valor)
         else:
@@ -61,7 +60,6 @@ def conseguirnotas():
 
 notas1, notas2, notas3, notas4, notas5 = conseguirnotas()
 print(notas1)
-print(notas2)
 #observaciones1, observaciones2, observaciones3, observaciones4, observaciones5 = pd.DataFrame({'NOTAS':np.array(notas1)}), pd.DataFrame({'NOTAS':np.array(notas2)}), pd.DataFrame({'NOTAS':np.array(notas3)}), pd.DataFrame({'NOTAS':np.array(notas4)}), pd.DataFrame({'NOTAS':np.array(notas5)})
 #observaciones = pd.DataFrame({'NOTAS':np.array([3,19,10,15,14,12,9,8,11,12,11,12,13,11,14,16])})
 
