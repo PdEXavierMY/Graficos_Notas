@@ -52,7 +52,7 @@ if __name__ == "__main__":
         stats1.analisisCaracteristica()
     elif eleccion == 2:
         stats2.analisisCaracteristica()
-    elif eleccion == 5:
+    elif eleccion == 3:
         stats3.analisisCaracteristica()
     elif eleccion == 4:
         stats4.analisisCaracteristica()
