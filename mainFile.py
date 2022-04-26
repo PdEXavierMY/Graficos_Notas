@@ -37,8 +37,7 @@ def notasfinales(s1, s2, s3, s4, s5):
     notasmedia = []
     for i in range(len(s1)-1):
         total = float(s1[i])+float(s2[i])+float(s3[i])+float(s4[i])+float(s5[i])
-        total = round(total, 2)
-        media = total/5
+        media = round((total/5), 2)
         notasmedia.append(media)
     return notasmedia
 medias = notasfinales(notas1, notas2, notas3, notas4, notas5)
