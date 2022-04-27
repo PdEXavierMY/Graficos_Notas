@@ -5,7 +5,7 @@ Link de Kaggle al [csv](https://www.kaggle.com/datasets/sankha1998/student-semes
 Link al [repositorio](https://github.com/Xavitheforce/Graficos_Notas)
 ***
 
-En este ejercicio he reutilizado el código proporcionado por el ejercicio con las funciones necesarias para calcular una estadística de datos(media, moda, mediana, cuartiles) a partir de un dataset panda. Simplemente he ajustado el main para que reciba un csv(link en la parte superior) y saque las columnas que interesan en forma de lista. A partir de esa lista, pandas crea un dataset y lo pasa por el archivo JMPEstadísticas.
+En este ejercicio he reutilizado el código proporcionado con las funciones necesarias para calcular una estadística de datos(media, moda, mediana, cuartiles) a partir de un dataset panda. Simplemente he ajustado el main para que reciba un csv(link en la parte superior) y saque las columnas que interesan en forma de lista. A partir de esa lista, pandas crea un dataset y lo pasa por el archivo JMPEstadísticas.
 
 En este caso, el dataset contiene (entre otras) 5 columnas con las notas semestrales de x alumnos. El código está planteado para que si hubiera filas en blanco con algún dato en lo referente a esas notas, esas filas sean eliminadas y no den problemas. Además, la agregación de una función que calcula la media final(considerando que todo tiene el mismo peso) de las notas semestrales de los alumnos, y luego saca su estadística correspondiente, es original.
 
